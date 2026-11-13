@@ -216,24 +216,60 @@
         // Change slide every 3 seconds
         setInterval(nextSlide, 3000);
 
-        // On touch devices, replay the interactive card effects as each item
-        // enters the viewport instead of relying on a mouse cursor.
+        // On touch devices, apply the interaction to only the item nearest the
+        // middle of the screen, then reset it as the user scrolls past.
         const touchDevice = window.matchMedia('(hover: none), (pointer: coarse)').matches;
-        const scrollEffectTargets = document.querySelectorAll(
+        const scrollEffectTargets = Array.from(document.querySelectorAll(
             '.program-card, .team-card, .contact-card, .rgb-banner-button'
-        );
+        ));
 
         if (touchDevice && 'IntersectionObserver' in window) {
-            const scrollEffectObserver = new IntersectionObserver((entries, observer) => {
-                entries.forEach((entry) => {
-                    if (entry.isIntersecting) {
-                        entry.target.classList.add('is-scroll-active');
-                        observer.unobserve(entry.target);
+            const updateScrollEffects = () => {
+                const viewportCenter = window.innerHeight / 2;
+                const activeZoneTop = window.innerHeight * 0.2;
+                const activeZoneBottom = window.innerHeight * 0.8;
+                let currentTarget = null;
+                let shortestDistance = Infinity;
+
+                scrollEffectTargets.forEach((target) => {
+                    const bounds = target.getBoundingClientRect();
+                    const isInActiveZone = bounds.bottom > activeZoneTop && bounds.top < activeZoneBottom;
+
+                    if (isInActiveZone) {
+                        const targetCenter = bounds.top + (bounds.height / 2);
+                        const distanceFromCenter = Math.abs(targetCenter - viewportCenter);
+
+                        if (distanceFromCenter < shortestDistance) {
+                            currentTarget = target;
+                            shortestDistance = distanceFromCenter;
+                        }
                     }
                 });
-            }, { threshold: 0.35 });
+
+                scrollEffectTargets.forEach((target) => {
+                    target.classList.toggle('is-scroll-active', target === currentTarget);
+                });
+            };
+
+            let scrollUpdateQueued = false;
+            const requestScrollEffectUpdate = () => {
+                if (scrollUpdateQueued) return;
+
+                scrollUpdateQueued = true;
+                window.requestAnimationFrame(() => {
+                    scrollUpdateQueued = false;
+                    updateScrollEffects();
+                });
+            };
+
+            const scrollEffectObserver = new IntersectionObserver(requestScrollEffectUpdate, {
+                rootMargin: '-20% 0px -20% 0px'
+            });
 
             scrollEffectTargets.forEach((target) => scrollEffectObserver.observe(target));
+            window.addEventListener('scroll', requestScrollEffectUpdate, { passive: true });
+            window.addEventListener('resize', requestScrollEffectUpdate);
+            requestScrollEffectUpdate();
         }
     </script>
 </body>
