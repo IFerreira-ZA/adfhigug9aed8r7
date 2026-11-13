@@ -758,3 +758,48 @@ img {
     transform: translateY(-5px) scale(1.05);
     box-shadow: 0 10px 15px -3px rgba(0, 0, 0, 0.1), 0 4px 6px -2px rgba(0, 0, 0, 0.05);
 }
+
+/* Touch devices have no cursor, so the same details animate once on scroll. */
+@media (hover: none), (pointer: coarse) {
+    .program-card.is-scroll-active {
+        transform: translateY(-1rem) scale(1.05);
+    }
+
+    .program-card.is-scroll-active .program-card__icon {
+        transform: var(--card-icon-hover);
+    }
+
+    .program-card.is-scroll-active .program-card__title {
+        color: var(--card-title-hover);
+    }
+
+    .hover-glow.is-scroll-active {
+        box-shadow: 0 0 25px 10px rgba(244, 114, 182, 0.6);
+        z-index: 10;
+    }
+
+    .program-card.is-scroll-active .btn-pop,
+    .btn-pop.is-scroll-active {
+        transform: translateY(-5px) scale(1.05);
+        box-shadow: 0 10px 15px -3px rgba(0, 0, 0, 0.1), 0 4px 6px -2px rgba(0, 0, 0, 0.05);
+    }
+
+    .rgb-banner-button.is-scroll-active {
+        transform: scale(1.1);
+        color: #111827;
+        background: white;
+        box-shadow: 0 0 1rem rgba(255, 230, 0, 1), 0 0 2rem rgba(0, 255, 204, 0.9);
+    }
+}
+
+@media (prefers-reduced-motion: reduce) {
+    .program-card,
+    .program-card__icon,
+    .program-card__title,
+    .btn-pop,
+    .rgb-banner-button,
+    .team-card,
+    .contact-card {
+        transition-duration: 0ms;
+    }
+}

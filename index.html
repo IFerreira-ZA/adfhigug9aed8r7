@@ -215,6 +215,26 @@
 
         // Change slide every 3 seconds
         setInterval(nextSlide, 3000);
+
+        // On touch devices, replay the interactive card effects as each item
+        // enters the viewport instead of relying on a mouse cursor.
+        const touchDevice = window.matchMedia('(hover: none), (pointer: coarse)').matches;
+        const scrollEffectTargets = document.querySelectorAll(
+            '.program-card, .team-card, .contact-card, .rgb-banner-button'
+        );
+
+        if (touchDevice && 'IntersectionObserver' in window) {
+            const scrollEffectObserver = new IntersectionObserver((entries, observer) => {
+                entries.forEach((entry) => {
+                    if (entry.isIntersecting) {
+                        entry.target.classList.add('is-scroll-active');
+                        observer.unobserve(entry.target);
+                    }
+                });
+            }, { threshold: 0.35 });
+
+            scrollEffectTargets.forEach((target) => scrollEffectObserver.observe(target));
+        }
     </script>
 </body>
 </html>
