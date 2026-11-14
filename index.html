@@ -52,43 +52,68 @@
         </div>
     </header>
 
-    <!-- Main Content Grid -->
-    <main class="programs">
+    <!-- Moov to Move programme -->
+    <main class="programs" id="programs">
         <div class="section-header section-header--spacious">
-            <h2 class="section-title">Our Programs???</h2>
-            <p class="section-subtitle">Lorem ipsum dolor sit amet, consectetur adipiscing elit.</p>
+            <p class="section-eyebrow">Moov to Move</p>
+            <h2 class="section-title">Movement with a purpose</h2>
+            <p class="section-subtitle">A joyful weekly movement, stimulation and development programme for children aged 2–10.</p>
         </div>
 
-        <div class="programs__grid">
-            <!-- Card 1 -->
-            <div class="program-card program-card--yellow hover-glow">
-                <div class="program-card__icon">
-                    <span class="program-card__symbol">A</span>
+        <div class="programs__layout">
+            <article class="program-card hover-glow">
+                <div class="program-card__topline">
+                    <div class="program-card__icon" aria-hidden="true">
+                        <span class="program-card__symbol">↗</span>
+                    </div>
+                    <p class="program-card__eyebrow">Weekly classes &middot; Ages 2–10</p>
                 </div>
-                <h3 class="program-card__title">Early Reading</h3>
-                <p class="program-card__text">Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris.</p>
-                <button class="program-card__button btn-pop">Company</button>
-            </div>
+                <h3 class="program-card__title">We moov.<br>We learn.<br>We grow.</h3>
+                <p class="program-card__text">Through active, interactive play, children explore what their bodies can do while building the skills that support everyday learning and confident little lives.</p>
+                <div class="program-card__facts">
+                    <div class="program-card__fact">
+                        <strong>Small groups</strong>
+                        <span>Individual attention and encouragement</span>
+                    </div>
+                    <div class="program-card__fact">
+                        <strong>Play-led learning</strong>
+                        <span>Fun, age-appropriate activities every week</span>
+                    </div>
+                </div>
+                <a class="program-card__button btn-pop" href="#contact">Ask about a class <span aria-hidden="true">→</span></a>
+            </article>
 
-            <!-- Card 2 -->
-            <div class="program-card program-card--cyan hover-glow">
-                <div class="program-card__icon">
-                    <span class="program-card__symbol">123</span>
-                </div>
-                <h3 class="program-card__title">Math Fun</h3>
-                <p class="program-card__text">Duis aute irure dolor in reprehenderit in voluptate velit esse cillum.</p>
-                <button class="program-card__button btn-pop">Name</button>
-            </div>
+            <section class="programs__details" aria-labelledby="skills-title">
+                <p class="programs__label">What we nurture</p>
+                <h3 class="programs__title" id="skills-title">Big skills, built through play.</h3>
+                <p class="programs__intro">Each class uses themed activities and engaging equipment to help children practise important developmental skills in a safe, social space.</p>
 
-            <!-- Card 3 -->
-            <div class="program-card program-card--pink hover-glow">
-                <div class="program-card__icon">
-                    <span class="program-card__symbol">★</span>
+                <div class="skills-grid">
+                    <article class="skill skill--cyan">
+                        <span class="skill__icon" aria-hidden="true">✦</span>
+                        <div>
+                            <h4 class="skill__title">Move with confidence</h4>
+                            <p class="skill__text">Gross and fine motor skills, balance, coordination and vestibular activities.</p>
+                        </div>
+                    </article>
+                    <article class="skill skill--pink">
+                        <span class="skill__icon" aria-hidden="true">◎</span>
+                        <div>
+                            <h4 class="skill__title">Learn with the senses</h4>
+                            <p class="skill__text">Sensory, perceptual and language activities that make learning feel natural.</p>
+                        </div>
+                    </article>
+                    <article class="skill skill--yellow">
+                        <span class="skill__icon" aria-hidden="true">●</span>
+                        <div>
+                            <h4 class="skill__title">Play together</h4>
+                            <p class="skill__text">Ball skills, sport foundations, social skills and self-expression.</p>
+                        </div>
+                    </article>
                 </div>
-                <h3 class="program-card__title">Art &amp; Play</h3>
-                <p class="program-card__text">Excepteur sint occaecat cupidatat non proident, sunt in culpa qui.</p>
-                <button class="program-card__button btn-pop">Here</button>
-            </div>
+
+                <p class="programs__note"><span aria-hidden="true">♥</span> Designed to help children feel capable, connected and ready for the world around them.</p>
+            </section>
         </div>
     </main>
 
@@ -141,7 +166,7 @@
     </section>
 
     <!-- Contact and Location -->
-    <section class="contact">
+    <section class="contact" id="contact">
         <div class="contact__inner">
             <div class="section-header">
                 <h2 class="section-title">Come Say Hello!</h2>
