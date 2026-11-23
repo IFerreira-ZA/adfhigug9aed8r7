@@ -5,6 +5,9 @@
    ========================================================================== */
 :root {
     --blue-50: #eff6ff;
+    --brand-blue: #0196f4;
+    --brand-blue-dark: #0066b8;
+    --brand-orange: #fd7801;
     --gray-400: #9ca3af;
     --gray-500: #6b7280;
     --gray-600: #4b5563;
@@ -50,6 +53,8 @@
 html {
     line-height: 1.5;
     -webkit-text-size-adjust: 100%;
+    scroll-behavior: smooth;
+    scroll-padding-top: 5.5rem;
 }
 
 body {
@@ -171,70 +176,149 @@ img {
 }
 
 /* ==========================================================================
-   Hero carousel
+   Brand: logo, hero carousel, banner
    ========================================================================== */
-.carousel-container {
+.visually-hidden {
+    position: absolute;
+    width: 1px;
+    height: 1px;
+    margin: -1px;
+    padding: 0;
     overflow: hidden;
+    clip: rect(0 0 0 0);
+    white-space: nowrap;
+}
+
+.site-logo img {
+    height: 3rem;
+    width: auto;
+}
+
+.carousel-container {
     position: relative;
-    width: 100%;
-    height: 24rem;
-    background-color: var(--gray-900);
+    display: grid;
+    overflow: hidden;
+    background-color: var(--brand-blue-dark);
 }
 
 .slide {
-    position: absolute;
-    top: 0;
-    right: 0;
-    bottom: 0;
-    left: 0;
-    display: flex;
+    grid-area: 1 / 1;
+    display: grid;
+    grid-template-columns: minmax(0, 1fr);
     align-items: center;
-    justify-content: center;
-    width: 100%;
-    height: 100%;
+    justify-items: center;
+    gap: 1.5rem;
+    padding: 2.5rem 1.25rem 4rem;
+    color: #fff;
     opacity: 0;
-    transition: opacity 0.5s ease-in-out;
+    visibility: hidden;
+    transition: opacity 0.6s ease-in-out, visibility 0.6s;
     isolation: isolate;
 }
 
 .slide.active {
     opacity: 1;
+    visibility: visible;
 }
 
 .slide-copy {
     position: relative;
     z-index: 1;
-    width: min(90%, 58rem);
-    padding: 2rem;
+    max-width: 34rem;
     text-align: center;
-    color: white;
-    text-shadow: 0 0.2rem 0.6rem rgba(0, 0, 0, 0.24);
+    text-shadow: 0 0.15rem 0.5rem rgba(0, 0, 0, 0.2);
 }
 
 .slide-theme {
-    margin: 0 0 0.65rem;
-    font-size: clamp(2.75rem, 7vw, 5.5rem);
+    margin: 0 0 0.75rem;
+    font-size: clamp(2.25rem, 5vw, 3.75rem);
     font-weight: 900;
-    line-height: 0.95;
-    letter-spacing: -0.06em;
+    line-height: 1;
+    letter-spacing: -0.04em;
 }
 
 .slide-headline {
-    margin: 0 0 0.45rem;
-    font-size: clamp(1.6rem, 3vw, 2.5rem);
+    margin: 0 0 0.6rem;
+    font-size: clamp(1.4rem, 2.6vw, 2rem);
     font-weight: 900;
+    line-height: 1.2;
 }
 
 .slide-description {
     margin: 0;
-    font-size: clamp(1rem, 1.8vw, 1.25rem);
+    font-size: clamp(1rem, 1.6vw, 1.2rem);
     font-weight: 700;
+    line-height: 1.5;
+}
+
+.slide-media {
+    display: flex;
+    justify-content: center;
+    width: 100%;
+}
+
+.slide-media img {
+    width: auto;
+    max-height: 17rem;
+    border: 6px solid #fff;
+    border-radius: 1.5rem;
+    background: #fff;
+    box-shadow: 0 20px 40px -12px rgba(0, 0, 0, 0.4);
+}
+
+.slide-media--photo img { transform: rotate(2deg); }
+.slide-media--poster img { transform: rotate(-2deg); }
+.slide-media--mascot img { padding: 1rem; border-radius: 2rem; }
+
+@media (min-width: 768px) {
+    .slide {
+        grid-template-columns: minmax(0, 1.05fr) minmax(0, 0.95fr);
+        gap: 3rem;
+        min-height: 34rem;
+        padding: 3rem max(2rem, calc((100% - 72rem) / 2)) 4rem;
+    }
+
+    .slide-copy { text-align: left; justify-self: end; }
+    .slide-media { justify-content: flex-start; }
+    .slide-media img { max-height: 26rem; }
+}
+
+.carousel-dots {
+    position: absolute;
+    right: 0;
+    bottom: 1.25rem;
+    left: 0;
+    z-index: 2;
+    display: flex;
+    justify-content: center;
+    gap: 0.65rem;
+}
+
+.carousel-dot {
+    width: 0.8rem;
+    height: 0.8rem;
+    border: 2px solid #fff;
+    border-radius: 9999px;
+    background: transparent;
+    transition: background-color 250ms, transform 250ms;
+}
+
+.carousel-dot.is-active {
+    background: #fff;
+    transform: scale(1.25);
+}
+
+.carousel-dot:focus-visible,
+.site-logo:focus-visible,
+.site-footer__logo:focus-visible {
+    outline: 3px solid var(--yellow-400);
+    outline-offset: 3px;
 }
 
 .slide-learning {
     background:
-        radial-gradient(circle at 14% 24%, rgba(255, 255, 255, 0.22) 0 8%, transparent 8.5%),
-        linear-gradient(125deg, #047857, #14b8a6 58%, #5eead4);
+        radial-gradient(circle at 14% 24%, rgba(255, 255, 255, 0.2) 0 8%, transparent 8.5%),
+        linear-gradient(125deg, var(--brand-blue-dark), var(--brand-blue) 60%, #5cc3fb);
 }
 
 .slide-creative {
@@ -247,6 +331,44 @@ img {
     background:
         radial-gradient(circle at 12% 80%, rgba(255, 255, 255, 0.22) 0 10%, transparent 10.5%),
         linear-gradient(125deg, #db2777, #f43f5e 56%, #fb923c);
+}
+
+.program-card__icon.program-card__icon--mascot {
+    width: 5.5rem;
+    height: 5.5rem;
+    background-color: #fff;
+}
+
+.program-card__icon--mascot img {
+    width: auto;
+    height: 72%;
+}
+
+.moov-kid {
+    margin-bottom: 4rem;
+    background-color: #a3e2f4;
+}
+
+.moov-kid img {
+    width: 100%;
+    max-width: 90rem;
+    min-height: 11rem;
+    margin: 0 auto;
+    object-fit: cover;
+    object-position: center;
+}
+
+.site-footer__logo {
+    display: inline-block;
+    margin-bottom: 1.25rem;
+    padding: 0.6rem 1.25rem;
+    border-radius: 1.25rem;
+    background: #fff;
+}
+
+.site-footer__logo img {
+    height: 3.25rem;
+    width: auto;
 }
 
 /* ==========================================================================
@@ -699,6 +821,7 @@ img {
 }
 
 .rgb-banner-button {
+    display: inline-block;
     padding: 1rem 2.5rem;
     border-radius: 9999px;
     font-size: 1.25rem;

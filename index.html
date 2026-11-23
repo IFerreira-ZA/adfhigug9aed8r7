@@ -3,52 +3,64 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Private Learning Center</title>
+    <title>Moov to Move | Movement classes for children aged 2–10</title>
+    <link rel="icon" type="image/png" href="assets/favicon.png">
     <link rel="stylesheet" href="stylesheet.css">
 </head>
-<body>
+<body id="top">
 
     <!-- Navigation -->
     <nav class="site-nav">
         <div class="site-nav__inner">
-            <h1 class="site-logo">Center<span class="site-logo__accent">Name</span><span class="site-logo__text">Here</span></h1>
+            <a href="#top" class="site-logo" aria-label="Moov to Move, home"><img src="assets/logo.jpg" alt="Moov to Move" width="720" height="241"></a>
             <div class="site-nav__links">
-                <a href="#" class="site-nav__link site-nav__link--home">Home</a>
-                <a href="#" class="site-nav__link site-nav__link--programs">Programs</a>
-                <a href="#" class="site-nav__link site-nav__link--about">About</a>
-                <a href="#" class="site-nav__link site-nav__link--contact">Contact</a>
+                <a href="#top" class="site-nav__link site-nav__link--home">Home</a>
+                <a href="#programs" class="site-nav__link site-nav__link--programs">Programs</a>
+                <a href="#about" class="site-nav__link site-nav__link--about">About</a>
+                <a href="#contact" class="site-nav__link site-nav__link--contact">Contacts</a>
             </div>
             <button class="site-nav__menu-button">Menu</button>
         </div>
     </nav>
 
     <!-- Hero Image Carousel -->
-    <header class="carousel-container">
-        <!-- Slide 1 -->
+    <header class="carousel-container" aria-roledescription="carousel" aria-label="About Moov to Move">
+        <h1 class="visually-hidden">Moov to Move: movement, stimulation and development classes for children aged 2–10</h1>
         <div class="slide slide-learning active">
             <div class="slide-copy">
-                <p class="slide-theme">Active Learning</p>
-                <h2 class="slide-headline">Discover Fun</h2>
-                <p class="slide-description">lorem ipsum dolor sit amet consectetur adipiscing elit.</p>
+                <p class="slide-theme">Play. Learn. Grow.</p>
+                <h2 class="slide-headline">Every single day</h2>
+                <p class="slide-description">Weekly movement classes for children aged 2–10, full of play, laughter and learning.</p>
+            </div>
+            <div class="slide-media slide-media--photo">
+                <img src="assets/kids.jpg" alt="Three smiling children in Moov to Move shirts with their arms around each other" width="1000" height="1000">
             </div>
         </div>
-
-        <!-- Slide 2 -->
         <div class="slide slide-creative">
             <div class="slide-copy">
-                <p class="slide-theme">Creative Play</p>
-                <h2 class="slide-headline">Grow Bright Minds</h2>
-                <p class="slide-description">lorem ipsum dolor sit amet consectetur adipiscing elit.</p>
+                <p class="slide-theme">Strong bodies. Sharp minds.</p>
+                <h2 class="slide-headline">Happy kids!</h2>
+                <p class="slide-description">Fine and gross motor skills, balance, sensory play and more, built through active, interactive fun.</p>
+            </div>
+            <div class="slide-media slide-media--poster">
+                <img src="assets/poster.jpg" alt="Moov to Move poster listing the skills the programme develops: fine motor, gross motor, sensory, balance, hand-eye coordination, perceptual, visual and vestibular" width="853" height="1280">
+            </div>
+        </div>
+        <div class="slide slide-futures">
+            <div class="slide-copy">
+                <p class="slide-theme">Moov into a brighter future</p>
+                <h2 class="slide-headline">Confidence, coordination and fun in every movement</h2>
+                <p class="slide-description">Small groups, playful themes and plenty of encouragement.</p>
+            </div>
+            <div class="slide-media slide-media--mascot">
+                <img src="assets/mascot.webp" alt="The Moov to Move mascot: a child balancing an orange ball on their feet, with rainbow rays" width="800" height="1133">
             </div>
         </div>
 
-        <!-- Slide 3 -->
-        <div class="slide slide-futures">
-            <div class="slide-copy">
-                <p class="slide-theme">Bright Futures</p>
-                <h2 class="slide-headline">Build The Future</h2>
-                <p class="slide-description">lorem ipsum dolor sit amet consectetur adipiscing elit.</p>
-            </div>
+        <div class="carousel-dots" role="group" aria-label="Choose a slide">
+            <button type="button" class="carousel-dot is-active" aria-label="Show slide 1" aria-current="true"></button>
+            <button type="button" class="carousel-dot" aria-label="Show slide 2"></button>
+            <button type="button" class="carousel-dot" aria-label="Show slide 3"></button>
         </div>
     </header>
 
@@ -63,8 +75,8 @@
         <div class="programs__layout">
             <article class="program-card hover-glow">
                 <div class="program-card__topline">
-                    <div class="program-card__icon" aria-hidden="true">
-                        <span class="program-card__symbol">↗</span>
+                    <div class="program-card__icon program-card__icon--mascot">
+                        <img src="assets/mascot-icon.webp" alt="Moov to Move mascot" width="800" height="943">
                     </div>
                     <p class="program-card__eyebrow">Weekly classes &middot; Ages 2–10</p>
                 </div>
@@ -117,10 +129,15 @@
         </div>
     </main>
 
+    <!-- Brand banner -->
+    <section class="moov-kid">
+        <img src="assets/moov-kid-banner.jpg" alt="Illustration of a Moov kid balancing an orange ball under rainbows and a smiling sun, with the words I am a Moov kid" width="1600" height="533" loading="lazy">
+    </section>
+
     <!-- Owner Introduction -->
-    <section class="team">
+    <section class="team" id="about">
         <div class="section-header">
-            <h2 class="section-title">Meet the Heart of CenterNameHere</h2>
+            <h2 class="section-title">Meet the Heart of Moov to Move</h2>
             <p class="section-subtitle">A little more about the people and passion behind our center.</p>
         </div>
 
@@ -148,7 +165,7 @@
                     class="team-card__image"
                 >
                 <div class="team-card__body">
-                    <span class="team-card__badge">Monica</span>
+                    <span class="team-card__badge">Center</span>
                     <h3 class="team-card__title">Learning, Laughter, and Big Dreams | Of iets soos dit IDK</h3>
                     <p class="team-card__text">Lorem ipsum dolor sit amet, consectetur adipiscing elit. Integer pretium, magna quis malesuada malesuada, nisl erat varius tellus, a volutpat libero lacus vel tellus.</p>
                 </div>
@@ -160,9 +177,9 @@
     <section class="rgb-banner">
         <h2 class="rgb-banner__title">Ready to Learn?</h2>
         <p class="rgb-banner__text">Lorem ipsum dolor sit amet consectetur, adipisicing elit. Quos, natus!</p>
-        <button class="rgb-banner-button">
-            Start Journey
-        </button>
+        <a href="https://www.moov2move.co.za/" target="_blank" rel="noopener noreferrer" class="rgb-banner-button">
+            Start Your Journey!
+        </a>
     </section>
 
     <!-- Contact and Location -->
@@ -170,13 +187,13 @@
         <div class="contact__inner">
             <div class="section-header">
                 <h2 class="section-title">Come Say Hello!</h2>
-                <p class="section-subtitle">We would love to welcome you to the CenterNameHere family.</p>
+                <p class="section-subtitle">We would love to welcome you to the Moov to Move family.</p>
             </div>
 
             <div class="contact__grid">
                 <div class="contact-card hover-glow">
                     <span class="contact-card__badge">Get in Touch</span>
-                    <h3 class="contact-card__title">Find Your Way to CenterNameHere</h3>
+                    <h3 class="contact-card__title">Find Your Way to Moov to Move</h3>
 
                     <div class="contact-card__list">
                         <div class="contact-item">
@@ -219,8 +236,8 @@
 
     <!-- Footer -->
     <footer class="site-footer">
-        <h2 class="site-footer__title">Center<span class="site-footer__title-accent">Name</span> Here</h2>
-        <p class="site-footer__copyright">© 2026 Center Name Here. All rights reserved.</p>
+        <a href="#top" class="site-footer__logo" aria-label="Moov to Move, back to top"><img src="assets/logo.jpg" alt="Moov to Move" width="720" height="241" loading="lazy"></a>
+        <p class="site-footer__copyright">© 2026 Moov to Move. All rights reserved.</p>
         <p class="site-footer__note">Lorem ipsum dolor sit amet.</p>
     </footer>
 
@@ -229,17 +246,34 @@
 
     <!-- Carousel Script -->
     <script>
-        const slides = document.querySelectorAll('.slide');
+        const slides = Array.from(document.querySelectorAll('.slide'));
+        const dots = Array.from(document.querySelectorAll('.carousel-dot'));
+        const carousel = document.querySelector('.carousel-container');
         let currentSlide = 0;
+        let timer = null;
 
-        function nextSlide() {
+        function showSlide(index) {
             slides[currentSlide].classList.remove('active');
-            currentSlide = (currentSlide + 1) % slides.length;
+            dots[currentSlide].classList.remove('is-active');
+            dots[currentSlide].removeAttribute('aria-current');
+            currentSlide = index;
             slides[currentSlide].classList.add('active');
+            dots[currentSlide].classList.add('is-active');
+            dots[currentSlide].setAttribute('aria-current', 'true');
         }
 
-        // Change slide every 3 seconds
-        setInterval(nextSlide, 3000);
+        const reduceMotion = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
+        const startCarousel = () => {
+            if (!reduceMotion && !timer) timer = setInterval(() => showSlide((currentSlide + 1) % slides.length), 5000);
+        };
+        const stopCarousel = () => { clearInterval(timer); timer = null; };
+
+        dots.forEach((dot, i) => dot.addEventListener('click', () => showSlide(i)));
+        carousel.addEventListener('mouseenter', stopCarousel);
+        carousel.addEventListener('mouseleave', startCarousel);
+        carousel.addEventListener('focusin', stopCarousel);
+        carousel.addEventListener('focusout', startCarousel);
+        startCarousel();
 
         // On touch devices, apply the interaction to only the item nearest the
         // middle of the screen, then reset it as the user scrolls past.
